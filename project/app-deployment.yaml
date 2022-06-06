@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: geo-citizen
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: geo-citizen
+    template:
+        metadata:
+            labels:
+                app: geo-citizen
+        spec:
+            containers:
+                - name: citizen
+                  image: wollenszeit/demo-app-env
+                  ports:
+                      - containerPort: 8080
